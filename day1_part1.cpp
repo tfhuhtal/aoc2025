@@ -18,7 +18,6 @@ int main() {
   int dial = 50;
   int password = 0;
   int value = 0;
-  int rotation = 0;
 
   while (in >> line) {
     int sign = int(line[0]);
@@ -34,15 +33,14 @@ int main() {
     if (sign == 82) {
       cout << "Rotation dir to right: " << value << "\n"; 
       dial += value;
-      if (dial >= 100) dial -= 100; 
+      if (dial > end) dial -= 100; 
     }
 
     if (sign == 76) {
       cout << "Rotation dir to left: " << value << "\n";
       dial -= value;
-      if (dial < 0) dial += 100;
+      if (dial < start) dial += 100;
     }
-
 
     if (dial == 0) {
       password++;
